@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :require_login, except: [:index]
   def index
     @events = Event.all
   end
@@ -12,12 +13,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to root_path
+      flash[:success] = "Event '#{@event.name}' created!"
+      redirect_to @event
     else
-      render :new, status: :unprocessable_entity
+      flash[:alert] = "Some error!"
+      render :new
     end
   end
 
