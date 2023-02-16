@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root "events#index"
   resources :events
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :enrollments, only: [:create, :destroy, :update]
 end

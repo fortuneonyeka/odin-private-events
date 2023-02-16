@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   private
 
-  def require_user
+  def require_login
     unless current_user
-      redirect_to login_path, :alert => "Sign Up or Login"
+      redirect_to  new_session_path, :alert => "Sign Up or Login"
     end
   end
 
