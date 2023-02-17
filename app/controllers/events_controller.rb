@@ -13,14 +13,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(event_params)
+    @event = current_user.events.create(event_params)
 
     if @event.save
       flash[:success] = "Event '#{@event.name}' created!"
       redirect_to @event
     else
-      flash[:alert] = "Some error!"
-      render :new
+      flash[:alert] = "Please fix these #{@event.errors.count} errors below!"
+      render :new, status: :unprocessable_entity
     end
   end
 

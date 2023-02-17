@@ -1,0 +1,19 @@
+<div class="form">
+
+<%= form_with model: @user do |f|  %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %> <br /><br>
+  <% @user.errors.full_messages_for(:name).each do |message| %>
+      <div class=" text-danger"><%= message %></div>
+    <% end %>
+
+  <%= f.label :password %><br>
+  <%= f.password_field :password %> <br />
+  <% @user.errors.full_messages_for(:password).each do |message| %>
+      <div class=" text-danger"><%= message %></div>
+    <% end %>
+
+  <%= f.submit "Create account" %>
+<% end %>
+<%= link_to "Cancel",  root_path %></li>
+</div>

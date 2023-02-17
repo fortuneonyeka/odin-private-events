@@ -2,18 +2,30 @@
 <div>
 <%= form.label :Event_Name %><br>
   <%= form.text_field :name %><br>
+   <% @event.errors.full_messages_for(:name).each do |message| %>
+      <div class=" text-danger"><%= message %></div>
+    <% end %>
   </div>
   <div>
   <%= form.label :Event_Date %><br>
   <%= form.date_field :date %><br>
+   <% @event.errors.full_messages_for(:date).each do |message| %>
+      <div class=" text-danger"><%= message %></div>
+    <% end %>
   </div>
   <div>
   <%= form.label :Event_location %><br>
   <%= form.text_field :location %><br>
+   <% @event.errors.full_messages_for(:location).each do |message| %>
+      <div class=" text-danger"><%= message %></div>
+    <% end %>
   </div>
   <div>
   <%= form.label :Event_description %><br>
   <%= form.text_area :description, size: "60x10" %>
+   <% @event.errors.full_messages_for(:description).each do |message| %>
+      <div class=" text-danger"><%= message %></div>
+    <% end %>
   </div>
   <div>
   <%= form.submit "Create" %>
