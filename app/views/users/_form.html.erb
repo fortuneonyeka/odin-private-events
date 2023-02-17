@@ -1,19 +1,19 @@
-<div class="form">
+<div class="form-group">
 
 <%= form_with model: @user do |f|  %>
   <%= f.label :name %><br>
-  <%= f.text_field :name %> <br /><br>
+  <%= f.text_field :name, class:"form-control" %> <br /><br>
   <% @user.errors.full_messages_for(:name).each do |message| %>
       <div class=" text-danger"><%= message %></div>
     <% end %>
 
   <%= f.label :password %><br>
-  <%= f.password_field :password %> <br />
+  <%= f.password_field :password, class:"form-control" %> <br />
   <% @user.errors.full_messages_for(:password).each do |message| %>
       <div class=" text-danger"><%= message %></div>
     <% end %>
 
-  <%= f.submit "Create account" %>
+  <%= f.submit "Create account", class: "btn btn-primary" %>
 <% end %>
-<%= link_to "Cancel",  root_path %></li>
+<%= link_to "Back",class: "btn btn-primary",  root_path %></li>
 </div>
