@@ -1,12 +1,12 @@
-class AttendanceController < ApplicationController
+class EnrollmentsController < ApplicationController
   before_action :require_login
 
   def create
     event = Event.find(params[:event_id])
-    attendance = Attendance.new(event_id: event.id, user_id: params[:user_id])
+    enrollment = Enrollment.new(event_id: event.id, user_id: params[:user_id])
 
-    if attendance.save
-      attendance.invited!
+    if enrollment.save
+      enrollment.invited!
       flash[:notice] = "Invitation Sent"
       redirect_to users_path(event_id: event.id)
     else

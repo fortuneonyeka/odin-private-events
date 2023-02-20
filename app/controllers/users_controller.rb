@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash.notice = "User #{@user.name}, you are welcome and thank you for signing up!"
-      redirect_to users_path
+      redirect_to root_path
     else
       flash[:alert] = "Please fix these #{@user.errors.count} errors! below"
       render :new, status: :unprocessable_entity
