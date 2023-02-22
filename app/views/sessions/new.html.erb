@@ -10,6 +10,6 @@
 
               <%= f.submit "Log in", class: "btn btn-primary form-control mt-2" %>
         <% end %>
-    <%= link_to "Back", root_path %>
-    <%= link_to "SignUp", new_user_path %>
+    <%= link_to "Back", root_path, :class => "text-decoration-none" %>
+    <strong>Dont Have account?: <%= link_to "SignUp", new_user_path, :class => "text-decoration-none" %></strong>
   </div>
